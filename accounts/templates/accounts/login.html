@@ -1,0 +1,19 @@
+{% extends "towardsBookEra/base.html" %}
+
+{% block content %}
+
+    <div>
+      <form method="POST">
+        {% csrf_token %}
+          <fieldset class="form-group">
+           <legend class="border-bottom mb-4">
+               Login Here
+           </legend>
+            {{ form.as_p }}
+          </fieldset>
+        <button type="submit" class="btn btn-outline-primary">Log In</button>
+          <div>Forgot Password? <a href="#">Reset</a></div>
+          <div>Need Account? <a href="{% url 'registerPath' %}">Sign Up</a> </div>
+      </form>
+    </div>
+{% endblock content %}
