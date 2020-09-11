@@ -2,18 +2,20 @@
 {% load crispy_forms_tags %}
 {% block content %}
 
-    <div class="content-section mt-3">
-      <form method="POST">
+<div class="content-section mt-3">
+    <form method="POST">
         {% csrf_token %}
-          <fieldset class="form-group">
-           <legend class="border-bottom mb-4">
-               Login Here
-           </legend>
+        <fieldset class="form-group">
+            <legend class="border-bottom mb-4">
+                Login Here
+            </legend>
             {{ form|crispy}}
-          </fieldset>
+        </fieldset>
         <button type="submit" class="btn btn-outline-primary">Log In</button>
-          <div>Forgot Password? <a href="#">Reset</a></div>
-          <div>Need Account? <a href="{% url 'registerPath' %}">Sign Up</a> </div>
-      </form>
-    </div>
+        <div class="border-top mt-3">
+            <div class="mt-2">Forgot Password? <a href="#">Reset</a></div>
+            <div>Need Account? <a href="{% url 'registerPath' %}">Sign Up</a></div>
+        </div>
+    </form>
+</div>
 {% endblock content %}

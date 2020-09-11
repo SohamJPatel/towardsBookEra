@@ -17,3 +17,13 @@ def register(request):
         form = RegisterForm()
 
     return render(request, 'accounts/register.html', {'form': form})
+
+
+def set_profile(request):
+    pass
+
+
+def update_profile(request):
+    pass
+
+

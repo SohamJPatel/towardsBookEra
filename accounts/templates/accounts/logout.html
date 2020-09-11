@@ -1,11 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-You Are Logged Out
-<a href="{% url 'loginPath' %}">Log In</a>
-</body>
-</html>
+{% extends "towardsBookEra/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<div class="mt-3">
+    <h3>You Are Logged Out</h3>
+    <a class ="btn btn-primary" href="{% url 'loginPath' %}">Log In</a>
+</div>
+
+{% endblock %}

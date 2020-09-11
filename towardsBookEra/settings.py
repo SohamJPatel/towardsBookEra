@@ -126,4 +126,6 @@ AUTH_USER_MODEL = 'accounts.Member'
 
 LOGIN_REDIRECT_URL = 'homePath'
 
+LOGOUT_REDIRECT_URL = 'homePath'
+
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
