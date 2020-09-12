@@ -12,7 +12,7 @@ def register(request):
             form.save()
             # username = form.cleaned_data('username')
             # messages.success(request, f'Account Created For {username}')
-            return redirect('homePath')
+            return redirect('loginPath')
     else:
         form = RegisterForm()
 
