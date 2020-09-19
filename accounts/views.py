@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm
-from . forms import RegisterForm
+from . forms import RegisterForm, UserUpdateForm, ProfileUpdateForm
+from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 
 
@@ -19,11 +20,23 @@ def register(request):
     return render(request, 'accounts/register.html', {'form': form})
 
 
-def set_profile(request):
-    pass
+@login_required
+def profile(request):
+    if request.method == 'POST':
+        u_form = UserUpdateForm(request.POST, instance=request.user)
+        p_form = ProfileUpdateForm(request.POST, request.FILES, instance=request.user.memberprofile)
 
+        if u_form.is_valid() and p_form.is_valid():
+            u_form.save()
+            p_form.save()
+            messages.success(request, 'Your profile updated successfully!!')
+            return redirect('profilePath')
+    else:
+        u_form = UserUpdateForm(instance=request.user)
+        p_form = ProfileUpdateForm(instance=request.user.memberprofile)
 
-def update_profile(request):
-    pass
-
-
+    context = {
+        'u_form': u_form,
+        'p_form': p_form,
+    }
+    return render(request, 'accounts/profile.html', context)
