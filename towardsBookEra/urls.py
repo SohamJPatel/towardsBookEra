@@ -21,6 +21,8 @@ from django.contrib.auth import views as auth_views
 from django.conf import settings
 from django.conf.urls.static import static
 
+admin.site.site_header = "TowardsBookEra Administration"
+admin.site.site_title = "TowardsBookEra - Welcome new era with knowledge"
 
 urlpatterns = [
     path('admin/', admin.site.urls),
