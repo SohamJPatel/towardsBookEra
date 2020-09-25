@@ -109,5 +109,24 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
         integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
         crossorigin="anonymous"></script>
+
+<script>
+    $(document).ready(function(){
+    $('input[name="rbtnSearchBy"]').change(function(){
+        if($('#searchbyname').prop('checked')){
+           $('input[name="txtSearchName"]').attr("readonly",false);
+           $('input[name="txtSearchName"]').focus();
+           $('input[name="txtSearchAuthor"]').attr("readonly",true);
+        }
+
+         if($('#searchbyauthor').prop('checked')){
+           $('input[name="txtSearchAuthor"]').attr("readonly",false);
+           $('input[name="txtSearchAuthor"]').focus();
+           $('input[name="txtSearchName"]').attr("readonly",true);
+        }
+    });
+});
+</script>
+
 </body>
 </html>

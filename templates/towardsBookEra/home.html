@@ -3,5 +3,6 @@
 {% block content %}
 <div class="mt-3">
     <h1>Welcome {{ user.first_name }}</h1>
+    <a href="{% url 'bookshopPath' %}">Visit Book Shop</a>
 </div>
 {% endblock content %}

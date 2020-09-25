@@ -1,0 +1,49 @@
+{% extends "towardsBookEra/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+<h1 class="mt-3">Search Books Here</h1><br>
+<form method="POST" action="{% url 'bookshopPath' %}">
+    {% csrf_token %}
+    <div class="col-md-12" style="border:solid 1px">
+        <table style="border-collapse: separate; border-spacing: 3px;">
+            <tr>
+                <td>
+                    <input type="radio" id="searchbyname" name="rbtnSearchBy" value="book_name">
+                    <label for="searchbyname">Search By Book Name</label>
+                </td>
+                <td id="searchByNameField"><input type="text" readonly="true" name="txtSearchName"  placeholder="Name To Search"></td>
+            </tr>
+
+            <tr>
+                <td>
+                    <input type="radio" id="searchbyauthor" name="rbtnSearchBy" value="author_name">
+                    <label for="searchbyauthor">Search By Author</label>
+                </td>
+                <td id="searchByAuthorField"><input type="text" name="txtSearchAuthor" readonly="true" placeholder="Author Name To Search"></td>
+            </tr>
+
+            <tr>
+                <td>
+                </td>
+
+                <td>
+                    <input type="submit" value="Find" class="btn btn-info">
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    {% if books %}
+    {% for book in books %}
+    <div class="media mt-3">
+        <img class="square account-img" src="{{ book.book_frontpage.url }}">
+        <div class="media-body">
+            <h2 class="account-heading">{{ book.book_name }}</h2>
+            <p class="text-secondary">{{ book.book_description }} </p>
+        </div>
+    </div>
+    {% endfor %}
+    {% endif %}
+</form>
+
+{% endblock content %}

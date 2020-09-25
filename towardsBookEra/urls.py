@@ -30,7 +30,9 @@ urlpatterns = [
     path('logout/', auth_views.LogoutView.as_view(template_name='accounts/logout.html'), name='logoutPath'),
     path('', master_view.index, name='homePath'),
     path('register/', account_view.register, name="registerPath"),
-    path('accounts/', include('accounts.urls'))
+    path('accounts/', include('accounts.urls')),
+    path('books/', include("bookApp.urls"), name="bookshopPath")
+
 ]
 
 if settings.DEBUG:
