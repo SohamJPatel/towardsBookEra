@@ -35,7 +35,7 @@
                     <a class="nav-link" href="{% url 'logoutPath' %}">Logout</a>
                 </li>
                  <li class="nav-item">
-                    <a class="nav-item nav-link" href="{% url 'profilePath' %}">Profile</a>
+                    <a class="nav-item nav-link" href="{% url 'profilePath' %}">{{ user.first_name }}</a>
                 </li>
                 {% endif %}
                  <li class="nav-item">

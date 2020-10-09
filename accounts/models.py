@@ -12,7 +12,7 @@ class Member(AbstractUser):
 
 class MemberProfile(models.Model):
     member = models.OneToOneField(Member, on_delete=models.CASCADE)
-    # address = models.CharField(max_length=500)
+     #address = models.CharField(max_length=500)
     date_of_birth = models.DateField(null=True, default=None)
     profile_image = models.ImageField(default='default.jpg', upload_to='profile_pics')
     is_complete = models.BooleanField(default=False)
