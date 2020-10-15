@@ -22,3 +22,7 @@ text-align: center;
 #abc {
 display: flex
 }
+
+#brd {
+border-bottom: double;
+}

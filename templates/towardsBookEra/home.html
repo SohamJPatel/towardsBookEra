@@ -14,23 +14,29 @@
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
   </body>
 </html>
+
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container">
   <a class="navbar-brand" href="#">towardsBookEra</a>
   </div>
 </nav>
+
+
 <section id="hdr" class="jumbotron text-center">
         <h2 class="display-3">Welcome new era with knowledge</h2>
         <a href="{% url 'loginPath' %}" class="btn btn-warning">SignIn</a>
     <a href="{% url 'registerPath' %}" class="btn btn-info">Register</a>
     </section>
 <section id="zzz">
+
 <!-- <img src="{% static 'accounts/images/book3.svg' %}" id="img"> -->
+
 <div class="container-fluid ">
   <div class="row border-0 justify-content-around align-items-center" id="abc">
     <div class="col-md-6">
@@ -93,7 +99,134 @@
                 </div>
             </div>
        </div>
-    </section>
+    </section>-->
+<!-- Code for Bookpage
+<section id="gallery">
+       <div class="container">
+            <div class="row justify-content-start">
+                <div class="col-lg-3 mb-3">
+                    <div class="card" style="height:300px">
+                        <img class="card-img-top" src="{% static 'accounts/images/book.jpg' %}" alt=" " style="height:300px">
+                        <!-- <div class="card-body">
+                            <a href="{% url 'bookshopPath' %}" class="btn btn-outline-success btn-sm">Store</a>
+                         </div>
+                    </div>
+                    <p></p>
+                    <p></p>
+                     <a href="" class="btn btn-outline-dark btn-sm btn-block">Buy</a>
+                    <a href="" class="btn btn-outline-dark btn-sm btn-block">Add to cart</a>
+                    </div>
+                <div class="col-lg-6 mb-6">
+                    <div class="card border-0">
+                        <div class="card-body">
+                            <h3 class="card-title">Book Title</h3>
+                            <h5> by Author name</h5>
+                            <h6>ISBN no.</h6>
+                            <h6>Price</h6>
+                            <p class="card-text">Welcome to the community of bibliophiles.
+                                Create your own blog,join groups and have discussions on books
+                                Hurry Sign Up now!
+                                Welcome to the community of bibliophiles.
+                                Create your own blog,join groups and have discussions on books
+                                Hurry Sign Up now!
+                                Welcome to the community of bibliophiles.
+                                Create your own blog,join groups and have discussions on books
+                                Hurry Sign Up now!
+                            </p>
 
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 mb-3">
+                    <div>
+                    <img src="{% static 'accounts/images/dlvry.jpg' %}"  style="width:100px;" class="rounded-circle border border-dark">
+                <p>FREE SHIPPING IN GUJARAT ON ORDER OVER 699INR</p>
+                        </div>
+                    <div>
+                    <img src="{% static 'accounts/images/cod.png' %}"  style="width:100px;" class="rounded-circle border border-dark">
+                <p>CASH ON DELIVERY</p>
+                        </div>
+                </div>
+            </div>
+       </div>
+    </section>
+<section>
+    <div class="container">
+        <h5 style="border-bottom: double;">Reader Q&A</h5>
+    <textarea rows="4" cols="50" name="comment">
+Enter text here...</textarea>
+        </div>
+</section>-->
+
+<!-- Code for particular category
+<<section>
+    <div class="container">
+         <div class="row border-0 justify-content-start align-items-center">
+             <div class="col-lg-8 mb-8">
+             <h3>History</h3>
+             <p>
+                 History (from Greek ἱστορία - historia, meaning "inquiry, knowledge acquired by investigation") is the
+                 discovery, collection, organization, and presentation of information about past events. History can
+                 also mean the period of time after writing was invented. Scholars who write about history are called
+                 historians. It is a field of research which uses a narrative to examine and analyse the sequence of
+                 events, and it sometimes attempts to investigate objectively the patterns of cause and effect that
+                 determine events. Historians debate the nature of history and its usefulness.
+             </p>
+             <br>
+                 <br>
+                 <h5 style="border-bottom: double;">New Releases Tagged "History"</h5>
+                 <br>
+                 <div class="container-fluid">
+                     <section>
+                     <div class="row justify-content-start">
+                <div class="col-lg-4 mb-4">
+                    <div class="card" style="height:270px">
+                        <img class="card-img-top" src="{% static 'accounts/images/book.jpg' %}" alt=" " style="height:270px">
+                        <a href="#" class="stretched-link"></a>
+                    </div>
+                </div>
+                      <div class="col-lg-4 mb-4">
+                    <div class="card" style="height:270px">
+                        <img class="card-img-top" src="{% static 'accounts/images/book.jpg' %}" alt=" " style="height:270px">
+                        <a href="#" class="stretched-link"></a>
+                    </div>
+                </div>
+                        <div class="col-lg-4 mb-4">
+                    <div class="card" style="height:270px">
+                        <img class="card-img-top" src="{% static 'accounts/images/book.jpg' %}" alt=" " style="height:270px">
+                        <a href="#" class="stretched-link"></a>
+                    </div>
+                </div>
+
+                    </div>
+                         </section>
+                        <section>
+                     <div class="row justify-content-start">
+                <div class="col-lg-4 mb-4">
+                    <div class="card" style="height:270px">
+                        <img class="card-img-top" src="{% static 'accounts/images/book.jpg' %}" alt=" " style="height:270px">
+                        <a href="#" class="stretched-link"></a>
+                    </div>
+                </div>
+                      <div class="col-lg-4 mb-4">
+                    <div class="card" style="height:270px">
+                        <img class="card-img-top" src="{% static 'accounts/images/book.jpg' %}" alt=" " style="height:270px">
+                        <a href="#" class="stretched-link"></a>
+                    </div>
+                </div>
+                        <div class="col-lg-4 mb-4">
+                    <div class="card" style="height:270px">
+                        <img class="card-img-top" src="{% static 'accounts/images/book.jpg' %}" alt=" " style="height:270px">
+                        <a href="#" class="stretched-link"></a>
+                    </div>
+                </div>
+
+                    </div>
+                         </section>
+                 </div>
+
+         </div>
+    </div>
+</section>-->
 </body>
 </html>
