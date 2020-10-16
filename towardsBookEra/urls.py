@@ -51,7 +51,9 @@ urlpatterns = [
 
     path('', master_view.index, name='homePath'),
     path('register/', account_view.register, name="registerPath"),
-    path('accounts/', include('accounts.urls'))
+    path('accounts/', include('accounts.urls')),
+
+    path('blog/', include('blog.urls')),
 ]
 
 if settings.DEBUG:
