@@ -1,103 +1,176 @@
 {% extends "towardsBookEra/base.html" %}
 {% load crispy_forms_tags %}
-{% block content %}
 {% load static %}
+{% block content %}
 <link rel="stylesheet" type="text/css" href="{% static 'accounts/style3.css' %}">
 <h1 class="mt-3">Search Books Here</h1><br>
-<div class="container-fluid">
-<form method="POST" action="{% url 'bookshopPath' %}">
-    {% csrf_token %}
-    <div class="row justify-content-start">
-        <div class="col-lg-3 mb-3">
-        <div>
-            <input type="radio" id="searchbyname" name="rbtnSearchBy" value="book_name">
-            <label for="searchbyname">Search By Book Name</label>
-            </div>
+<div class="container-fluid ml-3">
+    <form method="POST" action="{% url 'bookshopPath' %}">
+        {% csrf_token %}
+        <div class="row justify-content-start">
+            <div class="col-lg-3 mb-3">
                 <div>
-                <div id="searchByNameField"><input type="text" readonly="true" name="txtSearchName"  placeholder="Name To Search"></div>
-            </div>
-        <div>
+                    <input type="radio" id="searchbyname" name="rbtnSearchBy" value="book_name">
+                    <label for="searchbyname">Search By Book Name</label>
+                </div>
+                <div>
+                    <div id="searchByNameField"><input type="text" readonly="true" name="txtSearchName"
+                            placeholder="Name To Search"></div>
+                </div>
+                <div>
                     <input type="radio" id="searchbyauthor" name="rbtnSearchBy" value="author_name">
                     <label for="searchbyauthor">Search By Author</label>
                 </div>
-        <div>
-                <div id="searchByAuthorField"><input type="text" name="txtSearchAuthor" readonly="true" placeholder="Author Name To Search"></div>
-            </div>
+                <div>
+                    <div id="searchByAuthorField"><input type="text" name="txtSearchAuthor" readonly="true"
+                            placeholder="Author Name To Search"></div>
+                </div>
 
-<p></p>
-            <p></p>
+                <p></p>
+                <p></p>
                 <div>
                     <input type="submit" value="Find" class="btn btn-info">
                 </div>
-            <br>
-            <h4>Price</h4>
-<div class="form-check">
-  <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
-  <label class="form-check-label" for="exampleRadios1">
-    100-500
-  </label>
-</div>
-<div class="form-check">
-  <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
-  <label class="form-check-label" for="exampleRadios2">
-    500-1000
-  </label>
-</div>
-            <div class="form-check">
-  <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
-  <label class="form-check-label" for="exampleRadios2">
-    1000-2000
-  </label>
-            </div>
-            <div class="form-check">
-  <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
-  <label class="form-check-label" for="exampleRadios2">
-    2000-5000
-  </label>
-</div>
-            <br>
-            <div class="dropdown">
-  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    Categories
-  </button>
-  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-    <a class="dropdown-item" href="#">Action</a>
-    <a class="dropdown-item" href="#">Fiction</a>
-    <a class="dropdown-item" href="#">Religious</a>
-      <a class="dropdown-item" href="#">Educational</a>
-  </div>
-</div>
-</div>
-
-        <div class="col-lg-9 mb-9">
-            <div class="container-fluid">
-    {% if books %}
-                 <div class="row justify-content-start">
-    {% for book in books %}
-   <!-- <div class="media mt-3">
-        <img class="square account-img" src="{{ book.book_frontpage.url }}">
-        <div class="media-body">
-            <h2 class="account-heading">{{ book.book_name }}</h2>
-            <p class="text-secondary">{{ book.book_description }} </p>
-        </div>
-    </div>-->
-
-<div class="col-lg-3 mb-3" style="float:left">
-                    <div class="card" style="height:330px">
-                        <img class="card-img-top" src="{% static 'accounts/images/book.jpg' %}" alt=" " style="height:270px">
-                        <div class="card-body">
-                            <h5 class="card-title" style="text-align:center">{{ book.book_name }}</h5>
-                        <a href="#" class="stretched-link"></a>
-                        </div>
+                <br>
+                <h4>Price</h4>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1"
+                        value="option1" checked>
+                    <label class="form-check-label" for="exampleRadios1">
+                        100-500
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2"
+                        value="option2">
+                    <label class="form-check-label" for="exampleRadios2">
+                        500-1000
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2"
+                        value="option2">
+                    <label class="form-check-label" for="exampleRadios2">
+                        1000-2000
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2"
+                        value="option2">
+                    <label class="form-check-label" for="exampleRadios2">
+                        2000-5000
+                    </label>
+                </div>
+                <br>
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Categories
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="#">Action</a>
+                        <a class="dropdown-item" href="#">Fiction</a>
+                        <a class="dropdown-item" href="#">Religious</a>
+                        <a class="dropdown-item" href="#">Educational</a>
                     </div>
-</div>
-
-    {% endfor %}
-                     </div>
-    {% endif %}
-        </div>
+                </div>
             </div>
-    </div>
-</form>
+
+            <div class="col-lg-9 mb-9">
+                <div class="container-fluid">
+                    {% if books %}
+                    <div class="row justify-content-start">
+                        {% for book in books %}
+                        <!-- <div class="media mt-3">
+                             <img class="square account-img" src="{{ book.book_frontpage.url }}">
+                             <div class="media-body">
+                                 <h2 class="account-heading">{{ book.book_name }}</h2>
+                                 <p class="text-secondary">{{ book.book_description }} </p>
+                             </div>
+                         </div>-->
+
+                        <div class="col-lg-3 mb-3" style="float:left">
+                            
+                                <div class="card">
+                                    <img class="card-img-top" src="{% static 'accounts/images/book.jpg' %}" alt=" "
+                                        style="height:auto" width="150%">
+                                    <div class="card-body">
+                                        <h5 class="card-title" style="text-align:center">{{ book.book_name }}</h5>
+                                        <p>{{ book.book_description }} </p>
+                                        <p>
+                                            <a class="btn btn-info mx-2" id="{{book.id}}"
+                                                href="bookview/{{book.id}}">Quick View</a>
+                                            <a class="btn btn-info cart" id="atoc{{book.id}}">Add To Cart</a>
+                                        </p>
+                                    </div>
+                                </div>
+                                <!--<div class="card">
+                                    <img class="card-img-top" src="{{ book.book_frontpage.url }}" alt="Card image cap">
+                                    <div class="card-body">
+                                        <h5 class="card-title">{{ book.book_name }}</h5>
+                                        <p class="card-text">
+                                            {{ book.book_description}} </p>
+                                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                                    </div>
+                                </div> !-->
+                            
+                        </div>
+
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </form>
 </div>
 {% endblock content %}
+{% block js %}
+<script>
+    $(document).ready(function () {
+        $('input[name="rbtnSearchBy"]').change(function () {
+            if ($('#searchbyname').prop('checked')) {
+                $('input[name="txtSearchName"]').attr("readonly", false);
+                $('input[name="txtSearchName"]').focus();
+                $('input[name="txtSearchAuthor"]').attr("readonly", true);
+            }
+
+            if ($('#searchbyauthor').prop('checked')) {
+                $('input[name="txtSearchAuthor"]').attr("readonly", false);
+                $('input[name="txtSearchAuthor"]').focus();
+                $('input[name="txtSearchName"]').attr("readonly", true);
+            }
+        });
+    });
+
+    console.log("Its Working");
+
+    if (localStorage.getItem('cart') == null) {
+        var cart = {};
+    }
+    else {
+        cart = JSON.parse(localStorage.getItem('cart'));
+        document.getElementById('cart').innerHTML = Object.keys(cart).length;
+        console.log('parsed');
+    }
+
+    $('.cart').click(function () {
+        console.log('Clicked');
+        var idStr = this.id.toString();
+        console.log(idStr);
+
+        if (cart[idStr] != undefined) {
+            cart[idStr] += 1;
+        }
+        else {
+            cart[idStr] = 1;
+        }
+        console.log(cart);
+        localStorage.setItem('cart', JSON.stringify(cart));
+        document.getElementById('cart').innerHTML = Object.keys(cart).length;
+    });
+
+    $('#pop').popover();
+    document.getElementById('pop').setAttribute('data-content', '<h5>Manage Your Shopping Cart Here...</h5>');
+</script>
+{% endblock %}
