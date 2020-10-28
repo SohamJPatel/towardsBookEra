@@ -67,9 +67,10 @@
     </nav>
 
 </header>
-<main role="main" class="container">
+<main role="main" class="container-fluid">
+    <section>
     <div class="row">
-        <div class="col-md-8">
+        <div class="col-12">
             {% if messages %}
             {% for message in messages %}
             <div class="alert alert-{{ message.tags }} mt-3">
@@ -98,6 +99,45 @@
             </div>
         </div>-->
     </div>
+        </section>
+    <section>
+    <div class="row" style="background-color: #ffdab9">
+        <div class="container">
+            <br>
+            <br>
+            <div class="row justify-content-start">
+                <div class="col-lg-6 mb-6">
+                    <h2>towardsBookEra</h2>
+                    <h4>Welcome new era with knowledge</h4>
+                </div>
+                <div class="col-lg-3 mb-3">
+                 <h4>SiteMap</h4>
+                    <br>
+                    <a href="#">Home</a>
+                    <br>
+                    <a href="#">About Us</a>
+                    <br>
+                    <a href="#">Contact Us</a>
+                    <br>
+                </div>
+                <div class="col-lg-3 mb-3">
+                    <h4>Policies</h4>
+                    <br>
+                    <a href="#">Terms and Conditions</a>
+                    <br>
+                    <a href="#">Privacy Policy</a>
+                    <br>
+                    <a href="#">Shipping</a>
+                    <br>
+                     <a href="#">Payments</a>
+                    <br>
+                </div>
+            </div>
+            <br>
+            <br>
+        </div>
+    </div>
+</section>
 </main>
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->

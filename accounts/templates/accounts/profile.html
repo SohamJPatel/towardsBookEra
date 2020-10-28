@@ -1,6 +1,10 @@
 {% extends "towardsBookEra/base.html" %}
 {% load crispy_forms_tags %}
 {% block content %}
+<div class="container">
+    <br>
+    <div class="row">
+        <div class="col-md-8">
 <div class="content-section mt-3">
     <div class="media">
         <img class="rounded-circle account-img" src="{{ user.memberprofile.profile_image.url }}">
@@ -22,4 +26,8 @@
         </div>
     </form>
 </div>
+            </div>
+            </div>
+    <br>
+    </div>
 {% endblock content %}

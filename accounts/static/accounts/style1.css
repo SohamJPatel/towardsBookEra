@@ -8,19 +8,9 @@ background-image: url("images/header1.jpg");
 background-repeat: no-repeat;
 background-size: cover;
 }
-/*body {
-    background-image: url("images/book3.svg");
-    background-repeat: no-repeat;
-    background-attachment: ;
-    background-position: -40px 70px;
-    background-size: 600px 600px;
-}*/
 
-#jk{
+#jk {
 text-align: center;
-}
-#abc {
-display: flex
 }
 
 #brd {
