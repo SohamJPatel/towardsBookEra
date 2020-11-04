@@ -22,4 +22,15 @@ class Book(models.Model):
     def __str__(self):
         return self.book_name + " By " + self.author_name
 
+    
+class Order(models.Model):
+    items_json = models.CharField(max_length=5000)
+    user_name = models.CharField(max_length=100)
+    address1 = models.CharField(max_length=500)
+    address2 = models.CharField(max_length=500)
+    city = models.CharField(max_length=100)
+    zip = models.CharField(max_length=100)
+    state = models.CharField(max_length=100, default="Abc")
+    order_total = models.CharField(max_length=100)
+    #order_placed_date = models.DateTimeField(auto_now_add=True)
 
