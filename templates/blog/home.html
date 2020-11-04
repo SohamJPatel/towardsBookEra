@@ -1,6 +1,10 @@
 {% extends "towardsBookEra/base.html" %}
 {% block content %}
     {% for post in posts %}
+<div class="container">
+    <br>
+    <div class="row">
+        <div class="col-md-8">
         <article class="media content-section">
           <img class="rounded-circle article-img" src="{{ post.author.profile.image.url }}">
           <div class="media-body">
@@ -12,6 +16,10 @@
             <p class="article-content">{{ post.content }}</p>
           </div>
         </article>
+            </div>
+    </div>
+</div>
+
     {% endfor %}
     {% if is_paginated %}
 
@@ -34,4 +42,5 @@
       {% endif %}
 
     {% endif %}
+
 {% endblock content %}

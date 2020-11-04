@@ -35,14 +35,14 @@
                     <a class="nav-link" href="{% url 'logoutPath' %}">Logout</a>
                 </li>
                  <li class="nav-item">
-                    <a class="nav-item nav-link" href="{% url 'profilePath' %}">{{ user.first_name }}</a>
+                    <a class="nav-item nav-link" href="{% url 'profilePath' %}">Profile</a>
                 </li>
                 {% endif %}
                  <li class="nav-item">
                     <a class="nav-link" href="{% url 'registerPath' %}">Sign Up</a>
                 </li>
 
-                <li class="nav-item dropdown">
+<li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Discussion
@@ -52,8 +52,6 @@
                         <a class="dropdown-item" href="{% url 'blog-home' %}">All Posts</a>
                     </div>
                 </li>
-
-
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -70,17 +68,21 @@
                     <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
                 </li> !-->
             </ul>
-            <form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-warning my-2 my-sm-0" type="submit">Search</button>
-            </form>
+             <ul class="navbar-nav mr-auto">
+     <form class="form-inline">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-info my-2 my-sm-0" type="submit">Search</button>
+    </form>
+    </ul>
         </div>
     </nav>
 
+
 </header>
 <main role="main" class="container-fluid">
+    <section>
     <div class="row">
-        <div class="col-md-8">
+        <div class="col-md-12">
             {% if messages %}
             {% for message in messages %}
             <div class="alert alert-{{ message.tags }} mt-3">
@@ -91,25 +93,66 @@
             {% block content %}{% endblock %}
 
         </div>
-
+<!--
         <div class="col-md-4 mt-3">
             <div class="content-section">
                 <h3>
                     <center>Explore More Here</center>
                 </h3>
-                <p class='text-muted'><!--You can put any information here you'd like.!-->
+                <p class='text-muted'><!--You can put any information here you'd like.!
                 <ul class="list-group">
                     <li class="list-group-item list-group-item-light">New Arrivals</li>
                     <li class="list-group-item list-group-item-light">Announcements</li>
                     <li class="list-group-item list-group-item-light">Reccomended For You</li>
                     <li class="list-group-item list-group-item-light">Your Orders</li>
                     <li class="list-group-item list-group-item-light">Manage Your Blog</li>
-                    <!--<li class="list-group-item list-group-item-light">etc</li>-->
+                    <!--<li class="list-group-item list-group-item-light">etc</li>
                 </ul>
                 </p>
             </div>
+        </div>-->
+    </div>
+        </section>
+    <section>
+    <div class="row" style="background-color: #1a5276">
+        <div class="container">
+            <div class="row justify-content-start">
+                <div class="col-lg-6 mb-6">
+                    <img src="{% static  'accounts/towardsbookEraLOGO.png' %}" style="width:190px;height:190px">
+                    <h4 style="color:white">Welcome new era with knowledge</h4>
+                </div>
+                <div class="col-lg-3 mb-3">
+                    <br>
+                    <br>
+                 <h4 style="color:white">SiteMap</h4>
+                    <br>
+                    <a style="color:white" href="#">Home</a>
+                    <br>
+                    <a style="color:white" href="#">About Us</a>
+                    <br>
+                    <a style="color:white" href="#">Contact Us</a>
+                    <br>
+                </div>
+                <div class="col-lg-3 mb-3">
+                    <br>
+                    <br>
+                    <h4 style="color:white">Policies</h4>
+                    <br>
+                    <a style="color:white" href="#">Terms and Conditions</a>
+                    <br>
+                    <a style="color:white" href="#">Privacy Policy</a>
+                    <br>
+                    <a style="color:white" href="#">Shipping</a>
+                    <br>
+                     <a style="color:white" href="#">Payments</a>
+                    <br>
+                </div>
+            </div>
+            <br>
+            <br>
         </div>
     </div>
+</section>
 </main>
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
