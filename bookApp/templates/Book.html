@@ -4,51 +4,56 @@
 {% block content %}
 <section id="gallery" class="my-3">
     <div class="container">
-         <div class="row justify-content-start">
-             <div class="col-lg-3 mb-3">
-                 <div class="card" style="height:300px">
-                     <img class="card-img-top" src="{% static 'accounts/images/book.jpg' %}" alt=" " style="height:300px">
+        <div class="row justify-content-start">
+            <div class="col-lg-3 mb-3">
+                <div class="card" style="height:300px">
+                    <img class="card-img-top" src="{% static 'accounts/images/book.jpg' %}" alt=" "
+                        style="height:300px">
                     <!-- <div class="card-body">
                          <a href="{% url 'bookshopPath' %}" class="btn btn-outline-success btn-sm">Store</a>
                       </div>!-->
-                 </div>
-                 <p></p>
-                 <p></p>
-                  <a href="" class="btn btn-outline-dark btn-sm btn-block">Buy</a>
-                 <a href="" class="btn btn-outline-dark btn-sm btn-block cart">Add to cart</a>
-                 </div>
-             <div class="col-lg-6 mb-6">
-                 <div class="card border-0">
-                     <div class="card-body">
-                         <h3 class="card-title">{{ bookdata.book_name }}</h3>
-                         <h5> by {{ bookdata.author_name }}</h5>
-                         <h6>ISBN no.</h6>
-                         <h6>Rs. {{ bookdata.book_price }}</h6>
-                         <p class="card-text"> {{ bookdata.book_description }}
-                         </p>
+                </div>
+                <p></p>
+                <p></p>
+                <a href="" class="btn btn-outline-dark btn-sm btn-block">Buy</a>
+                <a href="" id="pr{{book.id}}" class="btn btn-outline-dark btn-sm btn-block cart">Add to cart</a>
+            </div>
+            <div class="col-lg-6 mb-6">
+                <div class="card border-0">
+                    <div class="card-body">
+                        <h3 class="card-title">{{ bookdata.book_name }}</h3>
+                        <h5> by {{ bookdata.author_name }}</h5>
+                        <h6>ISBN no.</h6>
+                        <h6>Rs. {{ bookdata.book_price }}</h6>
+                        <p class="card-text"> {{ bookdata.book_description }}
+                        </p>
 
-                     </div>
-                 </div>
-             </div>
-             <div class="col-lg-3 mb-3">
-                 <div>
-                 <img src="{% static 'accounts/images/dlvry.jpg' %}"  style="width:100px;" class="rounded-circle border border-dark">
-             <p>FREE SHIPPING IN GUJARAT ON ORDER OVER 699INR</p>
-                     </div>
-                 <div>
-                 <img src="{% static 'accounts/images/cod.png' %}"  style="width:100px;" class="rounded-circle border border-dark">
-             <p>CASH ON DELIVERY</p>
-                     </div>
-             </div>
-         </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 mb-3">
+                <div>
+                    <img src="{% static 'accounts/images/dlvry.jpg' %}" style="width:100px;"
+                        class="rounded-circle border border-dark">
+                    <p>FREE SHIPPING IN GUJARAT ON ORDER OVER 699INR</p>
+                </div>
+                <div>
+                    <img src="{% static 'accounts/images/cod.png' %}" style="width:100px;"
+                        class="rounded-circle border border-dark">
+                    <p>CASH ON DELIVERY</p>
+                </div>
+            </div>
+        </div>
     </div>
- </section>
+</section>
 <section>
- <div class="container">
-     <h5 style="border-bottom: double;">Reader Q&A</h5>
- <textarea rows="4" cols="50" name="comment">
+    <div class="container">
+        <h5 style="border-bottom: double;">Reader Q&A</h5>
+        <textarea rows="4" cols="50" name="comment">
 Enter text here...</textarea>
-     </div>
+    </div>
 </section>
 {%endblock%}
-    
+
+
+{% endblock %}

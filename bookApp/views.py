@@ -21,9 +21,9 @@ def get_all_books(request):
             print(searchby)
 
         
-        book_list = list(books)
+        #book_list = list(books)
 
-        context = {'books' : book_list}
+        context = {'books' : books}
         
         return render(request, "Bookspage.html", context)
 
