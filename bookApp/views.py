@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from .models import Book
 from .models import Order
+import json
 
 def get_all_books(request):
     book_list = []
@@ -55,6 +56,11 @@ def checkout(request):
         oid = order.id
         return render(request,'checkout.html',{'thank':thank, 'oid':oid})
 
-
     return render(request,'checkout.html')
 
+def get_orders(request):
+    context = {}
+    orderList = Order.objects.filter(user_name=request.user.username)
+    context = {'orderList':orderList}
+
+    return render(request,'orders.html',context)

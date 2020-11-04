@@ -1,6 +1,7 @@
 {% load static %}
 <!doctype html>
 <html lang="en">
+
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -8,118 +9,133 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-          integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="{% static 'accounts/main.css' %}">
     <title>towardsBookEra</title>
 </head>
-<body>
-<header class="site-header">
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="#">towardsBookEra</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="{% url 'homePath' %}">Home <span class="sr-only">(current)</span></a>
-                </li>
-                {% if not request.user.is_authenticated %}
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'loginPath' %}">Sign In</a>
-                </li>
-                {% else %}
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'logoutPath' %}">Logout</a>
-                </li>
-                 <li class="nav-item">
-                    <a class="nav-item nav-link" href="{% url 'profilePath' %}">Profile</a>
-                </li>
-                {% endif %}
-                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'registerPath' %}">Sign Up</a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        About Us
+<body>
+    <header class="site-header">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <a class="navbar-brand" href="#">towardsBookEra</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="{% url 'homePath' %}">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    {% if not request.user.is_authenticated %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'loginPath' %}">Sign In</a>
+                    </li>
+                    {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'logoutPath' %}">Logout</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-item nav-link" href="{% url 'profilePath' %}">Profile</a>
+                    </li>
+                    {% endif %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'registerPath' %}">Sign Up</a>
+                    </li>
+                   <!-- <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            About Us
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="#">Who Are We</a>
+                            <a class="dropdown-item" href="#">Our Services</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#">Contact Us</a>
+                        </div>
+                    </li>!-->
+
+                    {%if request.user.is_authenticated %}
+                    <a class="nav-link dropdown-toggle" href="#" id="orderDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Orders
                     </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">Who Are We</a>
-                        <a class="dropdown-item" href="#">Our Services</a>
+                    <div class="dropdown-menu" aria-labelledby="orderDropdown">
+                        <a class="dropdown-item" href="{% url 'orderPath' %}">View Orders</a>
+                        <a class="dropdown-item" href="#">Track Order</a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Contact Us</a>
+                        
                     </div>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-item nav-link" href="#"></a>
-                </li>
-                <!--<li class="nav-item">
+                    {% endif %}
+                    <li class="nav-item">
+                        <a class="nav-item nav-link" href="#"></a>
+                    </li>
+                    <!--<li class="nav-item">
                     <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
                 </li> !-->
-            </ul>
-             <ul class="navbar-nav mr-auto">
-     <form class="form-inline">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-info my-2 my-sm-0" type="submit">Search</button>
-    </form>
+                </ul>
+                <ul class="navbar-nav mr-auto">
+                    <form class="form-inline">
+                        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-info my-2 my-sm-0" type="submit">Search</button>
+                    </form>
 
-      <button id="pop" type="button" class="btn btn-secondary mx-2" data-html="true" data-container="body" data-toggle="popover" data-placement="bottom" data-content="">
-    Cart(<small id="cart"></small>)
-</button>
+                    <button id="pop" type="button" class="btn btn-secondary mx-2" data-html="true" data-container="body"
+                        data-toggle="popover" data-placement="bottom" data-content="">
+                        Cart(<small id="cart"></small>)
+                    </button>
 
-    </ul>
-        </div>
-    </nav>
-
-</header>
-<main role="main" class="container-fluid">
-    <div class="row">
-        <div class="col-md-12">
-            {% if messages %}
-            {% for message in messages %}
-            <div class="alert alert-{{ message.tags }} mt-3">
-                 {{ message }}
+                </ul>
             </div>
-            {% endfor %}
-            {% endif %}
-            {% block content %}{% endblock %}
+        </nav>
 
-        </div>
-<!--
+    </header>
+    <main role="main" class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                {% if messages %}
+                {% for message in messages %}
+                <div class="alert alert-{{ message.tags }} mt-3">
+                    {{ message }}
+                </div>
+                {% endfor %}
+                {% endif %}
+                {% block content %}{% endblock %}
+
+            </div>
+            <!--
         <div class="col-md-4 mt-3">
             <div class="content-section">
                 <h3>
                     <center>Explore More Here</center>
                 </h3>
                 <p class='text-muted'><!--You can put any information here you'd like.!-->
-                <!--<ul class="list-group">
+            <!--<ul class="list-group">
                     <li class="list-group-item list-group-item-light">New Arrivals</li>
                     <li class="list-group-item list-group-item-light">Announcements</li>
                     <li class="list-group-item list-group-item-light">Reccomended For You</li>
                     <!--<li class="list-group-item list-group-item-light">etc</li>!-->
-        <!--
+            <!--
                 </ul>
                 </p>
             </div>
         </div>-->
-    </div>
-</main>
-<!-- Optional JavaScript -->
-<!-- jQuery first, then Popper.js, then Bootstrap JS -->
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        </div>
+    </main>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
         crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
         integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
         crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
         integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
         crossorigin="anonymous"></script>
 
-<!--<script id="filteringScript">
+    <!--<script id="filteringScript">
     $(document).ready(function(){
     $('input[name="rbtnSearchBy"]').change(function(){
         if($('#searchbyname').prop('checked')){
@@ -136,8 +152,9 @@
     });
 });
 </script> !-->
-{% block js %}
+    {% block js %}
 
-{% endblock %}
+    {% endblock %}
 </body>
+
 </html>

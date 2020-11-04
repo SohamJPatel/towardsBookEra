@@ -129,6 +129,7 @@
 
 </div>
 {% endblock content %}
+
 {% block js %}
 <script>
     $(document).ready(function () {
@@ -152,6 +153,7 @@
 
     if (localStorage.getItem('cart') == null) {
         var cart = {};
+        updateCart(cart);
     }
     else {
         cart = JSON.parse(localStorage.getItem('cart'));
