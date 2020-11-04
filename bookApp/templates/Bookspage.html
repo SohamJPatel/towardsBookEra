@@ -3,131 +3,130 @@
 {% load static %}
 {% block content %}
 <link rel="stylesheet" type="text/css" href="{% static 'accounts/style3.css' %}">
-<h1 class="mt-3">Search Books Here</h1><br>
-<div class="container-fluid ml-3">
+<div class="row" style="background-color: #dcdcdc">
+ <section id="gallery">
+     <br>
+
+<div class="container-fluid">
     <form method="POST" action="{% url 'bookshopPath' %}">
         {% csrf_token %}
         <div class="row justify-content-start">
             <div class="col-lg-3 mb-3">
-                <div>
-                    <input type="radio" id="searchbyname" name="rbtnSearchBy" value="book_name">
-                    <label for="searchbyname">Search By Book Name</label>
-                </div>
-                <div>
-                    <div id="searchByNameField"><input type="text" readonly="true" name="txtSearchName"
-                            placeholder="Name To Search"></div>
-                </div>
-                <div>
+        <div class="card border border-white rounded-0" style="width: 20rem;" style="background-color: #fff">
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">
+        <div>
                     <input type="radio" id="searchbyauthor" name="rbtnSearchBy" value="author_name">
                     <label for="searchbyauthor">Search By Author</label>
                 </div>
+        <div>
+                <div id="searchByAuthorField"><input type="text" name="txtSearchAuthor" readonly="true" placeholder="Author Name To Search"></div>
+            </div>
+    <br>
+        <div>
+            <input type="radio" id="searchbyname" name="rbtnSearchBy" value="book_name">
+            <label for="searchbyname">Search By Book Name</label>
+            </div>
                 <div>
-                    <div id="searchByAuthorField"><input type="text" name="txtSearchAuthor" readonly="true"
-                            placeholder="Author Name To Search"></div>
-                </div>
-
-                <p></p>
-                <p></p>
-                <div>
+                <div id="searchByNameField"><input type="text" readonly="true" name="txtSearchName"  placeholder="Name To Search"></div>
+            </div>
+        <br>
+         <div>
                     <input type="submit" value="Find" class="btn btn-info">
                 </div>
-                <br>
-                <h4>Price</h4>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1"
-                        value="option1" checked>
-                    <label class="form-check-label" for="exampleRadios1">
-                        100-500
-                    </label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2"
-                        value="option2">
-                    <label class="form-check-label" for="exampleRadios2">
-                        500-1000
-                    </label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2"
-                        value="option2">
-                    <label class="form-check-label" for="exampleRadios2">
-                        1000-2000
-                    </label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2"
-                        value="option2">
-                    <label class="form-check-label" for="exampleRadios2">
-                        2000-5000
-                    </label>
-                </div>
-                <br>
-                <div class="dropdown">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Categories
-                    </button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <a class="dropdown-item" href="#">Action</a>
-                        <a class="dropdown-item" href="#">Fiction</a>
-                        <a class="dropdown-item" href="#">Religious</a>
-                        <a class="dropdown-item" href="#">Educational</a>
-                    </div>
-                </div>
+    </li>
+      <li class="list-group-item">
+          <h4>Price</h4>
+<div class="form-check">
+  <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+  <label class="form-check-label" for="exampleRadios1">
+    100-500
+  </label>
+</div>
+<div class="form-check">
+  <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+  <label class="form-check-label" for="exampleRadios2">
+    500-1000
+  </label>
+</div>
+            <div class="form-check">
+  <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+  <label class="form-check-label" for="exampleRadios2">
+    1000-2000
+  </label>
             </div>
-    </form>
-    <div class="col-lg-9 mb-9">
-        <div class="container-fluid">
-            {% if not books.empty %}
-            <div class="row justify-content-start">
-                {% for book in books %}
-                <!-- <div class="media mt-3">
-                             <img class="square account-img" src="{{ book.book_frontpage.url }}">
-                             <div class="media-body">
-                                 <h2 class="account-heading">{{ book.book_name }}</h2>
-                                 <p class="text-secondary">{{ book.book_description }} </p>
-                             </div>
-                         </div>-->
+            <div class="form-check">
+  <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+  <label class="form-check-label" for="exampleRadios2">
+    2000-5000
+  </label>
+</div>
+           <br>
+                <div>
+                    <input type="submit" value="Apply" class="btn btn-info">
+                </div>
+      </li>
+      <li class="list-group-item">
+          <h4>Categories</h4>
+          <div>
+              <a href="#" class="text-dark">History</a>
+          </div>
+          <div>
+              <a href="#" class="text-dark">Education</a>
+          </div>
+          <div>
+              <a href="#" class="text-dark">Fiction</a>
+          </div>
+          <div>
+              <a href="#" class="text-dark">Religion</a>
+          </div>
 
-                <div class="col-lg-3 mb-3" style="float:left">
+      </li>
+  </ul>
 
-                    <div class="card">
-                        <img class="card-img-top" src="{% static 'accounts/images/book.jpg' %}" alt=" "
-                            style="height:auto" width="150%">
+</div>
+       </div>
+            <div class="col-lg-9 mb-9">
+             <div class="card border border-white rounded-0" style="width: 60rem;" style="background-color: #fff">
+                 <br>
+            <div class="container-fluid">
+    {% if books %}
+                 <div class="row justify-content-start">
+    {% for book in books %}
+
+<div class="col-lg-4 mb-4" style="float:left">
+                    <div class="card" style="height:470px;width:250px">
+                        <img class="card-img-top" src="{% static 'accounts/images/book.jpg' %}" alt=" " style="height:270px">
                         <div class="card-body">
-                            <h5 class="card-title" style="text-align:center" id="namepr{{book.id}}">{{ book.book_name }}
-                            </h5>
-                            <p>{{ book.book_description }} </p>
-                            Rs.<p class="price" id="pricepr{{book.id}}">{{book.book_price}}</p>
-                            <p>
-                                <a class="btn btn-info mx-2" id="qv{{book.id}}" href="bookview/{{book.id}}">Quick
+                            <h5 class="card-title" style="text-align:center" id="namepr{{book.id}}">{{ book.book_name }}</h5>
+                        <!--<a href="#" class="stretched-link"></a>-->
+
+                            <h6 class="price" id="pricepr{{book.id}}" style="text-align:center">{{book.book_price}} Rs.</h6>
+
+                            <a class="btn btn-info mx-2" id="qv{{book.id}}" href="bookview/{{book.id}}" style="margin-left: 3.2rem!important">Quick
                                     View</a>
+
                                 <span id="divpr{{book.id}}" class="divpr">
-                                    <a class="btn btn-info cart" id="pr{{book.id}}">Add To Cart</a>
+                                    <a class="btn btn-info cart mx-2" id="pr{{book.id}}" style="margin-left: 3.2rem!important">Add To Cart</a>
                                 </span>
-                            </p>
                         </div>
                     </div>
-                    <!--<div class="card">
-                                    <img class="card-img-top" src="{{ book.book_frontpage.url }}" alt="Card image cap">
-                                    <div class="card-body">
-                                        <h5 class="card-title">{{ book.book_name }}</h5>
-                                        <p class="card-text">
-                                            {{ book.book_description}} </p>
-                                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                                    </div>
-                                </div> !-->
+</div>
 
-                </div>
-
-                {% endfor %}
+    {% endfor %}
+                     </div>
+    {% endif %}
+        </div>
+                 <br>
             </div>
-            {% endif %}
+            <br>
+            <br>
         </div>
     </div>
+        </form>
 </div>
-
-</div>
+      </section>
+    </div>
 {% endblock content %}
 
 {% block js %}
