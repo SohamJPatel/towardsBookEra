@@ -30,57 +30,69 @@
                 <div id="searchByNameField"><input type="text" readonly="true" name="txtSearchName"  placeholder="Name To Search"></div>
             </div>
         <br>
-         <div>
-                    <input type="submit" value="Find" class="btn btn-secondary">
-                </div>
-    </li>
-      <li class="list-group-item">
-          <h4>Price</h4>
+        <h4>Price</h4>
 <div class="form-check">
-  <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+  <input class="form-check-input" type="checkbox" name="exampleRadios" id="exampleRadios1" value="option1">
   <label class="form-check-label" for="exampleRadios1">
     100-500
   </label>
 </div>
 <div class="form-check">
-  <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+  <input class="form-check-input" type="checkbox" name="exampleRadios" id="exampleRadios2" value="option2">
   <label class="form-check-label" for="exampleRadios2">
     500-1000
   </label>
 </div>
             <div class="form-check">
-  <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+  <input class="form-check-input" type="checkbox" name="exampleRadios" id="exampleRadios2" value="option2">
   <label class="form-check-label" for="exampleRadios2">
     1000-2000
   </label>
             </div>
             <div class="form-check">
-  <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+  <input class="form-check-input" type="checkbox" name="exampleRadios" id="exampleRadios2" value="option2">
   <label class="form-check-label" for="exampleRadios2">
     2000-5000
   </label>
 </div>
-           <br>
-                <div>
-                    <input type="submit" value="Apply" class="btn btn-secondary">
+<br>
+<h4>Categories</h4>
+<div class="form-check">
+  <input class="form-check-input" type="checkbox" name="exampleRadios" id="exampleRadios1" value="option1">
+  <label class="form-check-label" for="exampleRadios1">
+    Education
+  </label>
+</div>
+<div class="form-check">
+  <input class="form-check-input" type="checkbox" name="exampleRadios" id="exampleRadios2" value="option2">
+  <label class="form-check-label" for="exampleRadios2">
+    Motivatinal
+  </label>
+</div>
+            <div class="form-check">
+  <input class="form-check-input" type="checkbox" name="exampleRadios" id="exampleRadios2" value="option2">
+  <label class="form-check-label" for="exampleRadios2">
+    Fiction
+  </label>
+            </div>
+            <div class="form-check">
+  <input class="form-check-input" type="checkbox" name="exampleRadios" id="exampleRadios2" value="option2">
+  <label class="form-check-label" for="exampleRadios2">
+    Crime/Mystery
+  </label>
+</div>
+<div class="form-check">
+    <input class="form-check-input" type="checkbox" name="exampleRadios" id="exampleRadios2" value="option2">
+    <label class="form-check-label" for="exampleRadios2">
+      Biography
+    </label>
+  </div>
+<br>
+         <div>
+                    <input type="submit" value="Find" class="btn btn-secondary">
                 </div>
-      </li>
-      <li class="list-group-item">
-          <h4>Categories</h4>
-          <div>
-              <a href="#" class="text-dark">History</a>
-          </div>
-          <div>
-              <a href="#" class="text-dark">Education</a>
-          </div>
-          <div>
-              <a href="#" class="text-dark">Fiction</a>
-          </div>
-          <div>
-              <a href="#" class="text-dark">Religion</a>
-          </div>
-
-      </li>
+    </li>
+      
   </ul>
 
 </div>
@@ -94,19 +106,21 @@
     {% for book in books %}
 
 <div class="col-lg-4 mb-4" style="float:left">
-                    <div class="card" style="height:540px;width:250px">
+                    <div class="card" style="height:550px;width:250px">
                         <img class="card-img-top" src="{{ book.book_frontpage.url }}" alt=" " style="height:300px">
                         <div class="card-body">
                             <h5 class="card-title" style="text-align:center" id="namepr{{book.id}}">{{ book.book_name }}</h5>
                             <h6 class="card-title" style="text-align:center">{{ book.author_name }}</h6>
                             <h6 class="price" id="pricepr{{book.id}}" style="text-align:center">{{book.book_price}} Rs.</h6>
-
-                            <a class="btn btn-primary mx-2" id="qv{{book.id}}" href="bookview/{{book.id}}" style="margin-left: 3.2rem!important">Quick
-                                    View</a>
-
-                                <span id="divpr{{book.id}}" class="divpr">
-                                    <a class="btn btn-secondary cart mx-2" id="pr{{book.id}}" style="margin-left: 3.2rem!important">Add To Cart</a>
-                                </span>
+                            <div  style="margin-left: 2.7rem!important">
+                                <div>
+                            <a class="btn btn-primary mx-2" id="qv{{book.id}}" href="bookview/{{book.id}}">Quick
+                                    View</a></div>
+                                  <br>  
+                                <div id="divpr{{book.id}}" class="divpr" >
+                                    <a class="btn btn-secondary cart mx-2" id="pr{{book.id}}">Add To Cart</a>
+                                </div>
+                            </div>
                         </div>
                     </div>
 </div>
@@ -205,7 +219,7 @@
             i = i + 1;
         }
         
-        popStr = popStr + "</div> <a href='/books/checkout' class='btn btn-primary' id='checkout'>Checkout</a> <a class='btn btn-primary' id='clearcart' onClick='clearCart()'>Clear</a>";
+        popStr = popStr + "</div> <a href='/books/checkout' class='btn btn-primary' id='checkout'>Checkout</a> <a class='btn btn-secondary' id='clearcart' onClick='clearCart()'>Clear</a>";
 
         //popStr = popStr + "";
 
@@ -218,7 +232,7 @@
         console.log('Clearing cart...');
         cart = JSON.parse(localStorage.getItem('cart'));
         for(var item in cart){
-            document.getElementById('div'+item).innerHTML = '<a id= "' + item + '" class="btn btn-info cart">Add To Cart</a>';
+            document.getElementById('div'+item).innerHTML = '<a id= "' + item + '" class="btn btn-secondary cart">Add To Cart</a>';
         }
         localStorage.clear();
         cart = {};

@@ -2,7 +2,54 @@
 {% load crispy_forms_tags %}
 {% load static %}
 {% block content %}
+<br>
+<br>
+<div class="container"  style="background-color: #fff">
+    <br>
+<div class="row justify-content-center">
+    <div class="col-lg-9 mb-9">
+    <h5>Your Orders</h5>
     {% for order in orderList %}
-        <h2>{{order}}</h2>
-    {% endfor %}
+        <div class="card">
+            <h5 class="card-header">Order Details</h5>
+            <div class="card-body">
+                <div class="container-fluid">
+                    <div class="row justify-content-start">
+                <div class="col-lg-6 mb-6">
+                    <h6>Order Placed-05/11/2020</h6>
+                    <h6>Order Status-{{order.status}}</h6>
+                    <h6>Books Ordered</h6>
+                    <p>Cosmos-7
+                        <br>
+                        Theoryof Relativity-1
+                    </p>
+                </div>
+                <div class="col-lg-6 mb-6">
+                    <h6>Shipping Address:-</h6>
+                    <p>{{order.address1}}
+                        <br>
+                        {{order.address2}}
+                        <br>
+                        {{order.city}}
+                        <br>
+                        {{order.state}}
+                    </p>
+                    <h6>Order Total-{{order.order_total}}</h6>
+                    
+                </div>
+                </div>
+                </div>
+            </div>
+        </div>
+        <br>
+
+
+{% endfor %}
+</div>
+</div>
+</div>
+ <br>
+ <br>  
 {% endblock content%}
+
+
