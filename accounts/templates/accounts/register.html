@@ -3,8 +3,10 @@
 {% load crispy_forms_tags %}
 
 {% block content %}
-
-
+<div class="container">
+    <br>
+    <div class="row">
+        <div class="col-md-8">
     <div class="content-section mt-3">
       <form method="POST">
         {% csrf_token %}
@@ -22,6 +24,9 @@
           </small>
         </div>
     </div>
+        </div>
+    </div>
+</div>
 {% endblock content %}
 
 

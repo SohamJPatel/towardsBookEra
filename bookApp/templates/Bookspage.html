@@ -2,8 +2,7 @@
 {% load crispy_forms_tags %}
 {% load static %}
 {% block content %}
-<link rel="stylesheet" type="text/css" href="{% static 'accounts/style3.css' %}">
-<div class="row" style="background-color: #dcdcdc">
+<div class="row">
  <section id="gallery">
      <br>
 
@@ -32,7 +31,7 @@
             </div>
         <br>
          <div>
-                    <input type="submit" value="Find" class="btn btn-info">
+                    <input type="submit" value="Find" class="btn btn-secondary">
                 </div>
     </li>
       <li class="list-group-item">
@@ -63,7 +62,7 @@
 </div>
            <br>
                 <div>
-                    <input type="submit" value="Apply" class="btn btn-info">
+                    <input type="submit" value="Apply" class="btn btn-secondary">
                 </div>
       </li>
       <li class="list-group-item">
@@ -95,19 +94,18 @@
     {% for book in books %}
 
 <div class="col-lg-4 mb-4" style="float:left">
-                    <div class="card" style="height:470px;width:250px">
-                        <img class="card-img-top" src="{% static 'accounts/images/book.jpg' %}" alt=" " style="height:270px">
+                    <div class="card" style="height:540px;width:250px">
+                        <img class="card-img-top" src="{{ book.book_frontpage.url }}" alt=" " style="height:300px">
                         <div class="card-body">
                             <h5 class="card-title" style="text-align:center" id="namepr{{book.id}}">{{ book.book_name }}</h5>
-                        <!--<a href="#" class="stretched-link"></a>-->
-
+                            <h6 class="card-title" style="text-align:center">{{ book.author_name }}</h6>
                             <h6 class="price" id="pricepr{{book.id}}" style="text-align:center">{{book.book_price}} Rs.</h6>
 
-                            <a class="btn btn-info mx-2" id="qv{{book.id}}" href="bookview/{{book.id}}" style="margin-left: 3.2rem!important">Quick
+                            <a class="btn btn-primary mx-2" id="qv{{book.id}}" href="bookview/{{book.id}}" style="margin-left: 3.2rem!important">Quick
                                     View</a>
 
                                 <span id="divpr{{book.id}}" class="divpr">
-                                    <a class="btn btn-info cart mx-2" id="pr{{book.id}}" style="margin-left: 3.2rem!important">Add To Cart</a>
+                                    <a class="btn btn-secondary cart mx-2" id="pr{{book.id}}" style="margin-left: 3.2rem!important">Add To Cart</a>
                                 </span>
                         </div>
                     </div>

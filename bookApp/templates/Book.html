@@ -2,7 +2,7 @@
 {%load static %}
 {% load crispy_forms_tags %}
 {% block content %}
-<section id="gallery" style="background-color: #dcdcdc">
+<section id="gallery">
     <br>
 <br>
        <div class="container" style="background-color: #fff">
@@ -11,8 +11,8 @@
            <section>
             <div class="row justify-content-start">
                 <div class="col-lg-3 mb-3">
-                    <div class="card" style="height:300px">
-                        <img class="card-img-top" src="{% static 'accounts/images/book.jpg' %}" alt=" " style="height:300px">
+                    <div class="card" style="height:320px">
+                        <img class="card-img-top" src="{{ bookdata.book_frontpage.url }}" alt=" " style="height:320px">
 
                     </div>
                     </div>
