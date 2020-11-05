@@ -1,6 +1,7 @@
 {% load static %}
 <!doctype html>
 <html lang="en">
+
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -8,112 +9,148 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-          integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="{% static 'accounts/main.css' %}">
     <title>towardsBookEra</title>
 </head>
+
 <body>
-<header class="site-header">
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="#">towardsBookEra</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+    <header class="site-header">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <a class="navbar-brand" href="{% url 'homePath' %}">towardsBookEra</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="{% url 'homePath' %}">Home <span class="sr-only">(current)</span></a>
-                </li>
-                {% if not request.user.is_authenticated %}
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'loginPath' %}">Sign In</a>
-                </li>
-                {% else %}
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'logoutPath' %}">Logout</a>
-                </li>
-                 <li class="nav-item">
-                    <a class="nav-item nav-link" href="{% url 'profilePath' %}">Profile</a>
-                </li>
-                {% endif %}
-                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'registerPath' %}">Sign Up</a>
-                </li>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    {% if not request.user.is_authenticated %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'loginPath' %}">Sign In</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'registerPath' %}">Sign Up</a>
+                    </li>
+                    {% else %}
 
-<li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Discussion
+                    {% endif %}
+
+                   <!-- <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            About Us
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="#">Who Are We</a>
+                            <a class="dropdown-item" href="#">Our Services</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#">Contact Us</a>
+                        </div>
+                    </li>!-->
+
+                    {%if request.user.is_authenticated %}
+                    <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="orderDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Orders
                     </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="{% url 'post-create' %}">New Post</a>
-                        <a class="dropdown-item" href="{% url 'blog-home' %}">All Posts</a>
+                    <div class="dropdown-menu" aria-labelledby="orderDropdown">
+                        <a class="dropdown-item" href="#">View Orders</a>
+                        <a class="dropdown-item" href="#">Track Order</a>
                     </div>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        About Us
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">Who Are We</a>
-                        <a class="dropdown-item" href="#">Our Services</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Contact Us</a>
-                    </div>
-                </li>
-                <!--<li class="nav-item">
+                    </li>
+                    {% endif %}
+                    <li class="nav-item">
+                        <a class="nav-item nav-link" href="#"></a>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Discussion
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="{% url 'post-create' %}">New Post</a>
+                            <a class="dropdown-item" href="{% url 'blog-home' %}">All Posts</a>
+                        </div>
+                    </li>
+                    
+                    <!--<li class="nav-item">
                     <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
                 </li> !-->
-            </ul>
-             <ul class="navbar-nav mr-auto">
-     <form class="form-inline">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-info my-2 my-sm-0" type="submit">Search</button>
-    </form>
+                </ul>
+                <ul class="navbar-nav mr-auto">
+                    <form class="form-inline">
+                        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-info my-2 my-sm-0" type="submit">Search</button>
+                    </form>
+                </ul>
+                    
+                
+    <ul class="navbar-nav mr-sm-0" style="margin-right: 3.9rem!important;">
+        <a id="pop" class="btn btn-light" data-html="true" data-container="body"
+            data-toggle="popover" data-placement="bottom" data-content="">
+            <img src="{% static 'accounts/images/cart.png' %}"  style="width:40px;" class="rounded-circle">(<small id="cart"></small>)
+        </a>
     </ul>
-        </div>
-    </nav>
-
-
-</header>
-<main role="main" class="container-fluid">
-    <section>
-    <div class="row">
-        <div class="col-md-12">
-            {% if messages %}
-            {% for message in messages %}
-            <div class="alert alert-{{ message.tags }} mt-3">
-                {{ message }}
-            </div>
-            {% endfor %}
+    {% if request.user.is_authenticated %}
+                    <ul class="navbar-nav mr-sm-0">
+      <li class="nav-item dropdown ">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <img src="{% static 'accounts/images/user-logo.png' %}"  style="width:40px;height:37px" class="rounded-circle">
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <h5 style="text-align: justify;">{{user.username}}</h5>
+          <a class="dropdown-item" href="{% url 'profilePath' %}">Profile</a>
+          <a class="dropdown-item" href="{% url 'logoutPath' %}">Logout</a>
+            <a class="dropdown-item" href="{% url 'registerPath' %}">Sign Up</a>
+            {% else %}
             {% endif %}
-            {% block content %}{% endblock %}
-
         </div>
-<!--
+      </li>
+    </ul>
+            </div>
+        </nav>
+
+    </header>
+    <main role="main" class="container-fluid" style="background-color: #dcdcdc">
+    <section>
+        <div class="row">
+            <div class="col-md-12">
+                {% if messages %}
+                {% for message in messages %}
+                <div class="alert alert-{{ message.tags }} mt-3">
+                    {{ message }}
+                </div>
+                {% endfor %}
+                {% endif %}
+                {% block content %}{% endblock %}
+
+            </div>
+            <!--
         <div class="col-md-4 mt-3">
             <div class="content-section">
                 <h3>
                     <center>Explore More Here</center>
                 </h3>
-                <p class='text-muted'><!--You can put any information here you'd like.!
-                <ul class="list-group">
+                <p class='text-muted'><!--You can put any information here you'd like.!-->
+            <!--<ul class="list-group">
                     <li class="list-group-item list-group-item-light">New Arrivals</li>
                     <li class="list-group-item list-group-item-light">Announcements</li>
                     <li class="list-group-item list-group-item-light">Reccomended For You</li>
-                    <li class="list-group-item list-group-item-light">Your Orders</li>
-                    <li class="list-group-item list-group-item-light">Manage Your Blog</li>
-                    <!--<li class="list-group-item list-group-item-light">etc</li>
+                    <!--<li class="list-group-item list-group-item-light">etc</li>!-->
+            <!--
                 </ul>
                 </p>
             </div>
         </div>-->
-    </div>
+        </div>
         </section>
-    <section>
+        <section>
     <div class="row" style="background-color: #1a5276">
         <div class="container">
             <div class="row justify-content-start">
@@ -153,17 +190,55 @@
         </div>
     </div>
 </section>
-</main>
-<!-- Optional JavaScript -->
-<!-- jQuery first, then Popper.js, then Bootstrap JS -->
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    </main>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
         crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
         integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
         crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
         integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
         crossorigin="anonymous"></script>
+
+    <!--<script id="filteringScript">
+    $(document).ready(function(){
+    $('input[name="rbtnSearchBy"]').change(function(){
+        if($('#searchbyname').prop('checked')){
+           $('input[name="txtSearchName"]').attr("readonly",false);
+           $('input[name="txtSearchName"]').focus();
+           $('input[name="txtSearchAuthor"]').attr("readonly",true);
+        }
+
+         if($('#searchbyauthor').prop('checked')){
+           $('input[name="txtSearchAuthor"]').attr("readonly",false);
+           $('input[name="txtSearchAuthor"]').focus();
+           $('input[name="txtSearchName"]').attr("readonly",true);
+        }
+    });
+});
+</script> !-->
+    {% block js %}
+
+    {% endblock %}
 </body>
+
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
