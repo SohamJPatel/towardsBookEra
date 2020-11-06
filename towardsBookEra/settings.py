@@ -29,15 +29,14 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'blog.apps.BlogConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-
     'crispy_forms',
-
     'accounts.apps.AccountsConfig',
     'bookApp.apps.BookappConfig',
 ]
@@ -127,7 +126,7 @@ STATIC_URL = '/static/'
 
 AUTH_USER_MODEL = 'accounts.Member'
 
-LOGIN_REDIRECT_URL = 'homePath'
+LOGIN_REDIRECT_URL = 'bookshopPath'
 
 LOGOUT_REDIRECT_URL = 'homePath'
 

@@ -32,6 +32,7 @@ urlpatterns = [
     path('register/', account_view.register, name="registerPath"),
     path('accounts/', include('accounts.urls')),
     path('books/', include("bookApp.urls"), name="bookshopPath"),
+    path('blog/', include('blog.urls')),
 
 ]
 
