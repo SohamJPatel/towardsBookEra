@@ -8,14 +8,17 @@ def get_all_books(request):
     book_list = []
     books = Book.objects.none()
 
+    
     if request.method == 'POST':
-
         crm = request.POST.get('CRM')
         adn = request.POST.get('ADN')
         edu = request.POST.get('EDU')
         bgr = request.POST.get('BGR')
         fic = request.POST.get('FIC')
         mot = request.POST.get('MOT')
+
+        if not(crm and adn and edu and bgrfic and mot) and ((request.POST.get('txtMin') == "" and request.POST.get('txtMax')=="")) and request.POST.get('rbtnSearchBy')=="":
+            books = Book.objects.all()
 
         if crm:
             books = Book.objects.filter(book_category="CRM")
